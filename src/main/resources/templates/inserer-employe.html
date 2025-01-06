@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insérer un employé</title>
+</head>
+<body>
+    <h1>Insérer un employé</h1>
+    
+    <!-- Affichage des messages -->
+    <p th:if="${erreur}" th:text="${erreur}" style="color: crimson;"></p>
+    <p th:if="${reussite}" th:text="${reussite}" style="color: green;"></p>
+    
+    <!-- Formulaire d'insertion -->
+    <form action="/employe/traitement/inserer" method="post">
+        <p>
+            Nom: 
+            <input name="nom" type="text" required >
+        </p>
+        <p>
+            Sexe: 
+            <select name="id_sexe" required>
+                <option value="">Choisir</option>
+                <option th:each="sexe : ${sexes}" 
+                        th:value="${sexe.id}" 
+                        th:text="${sexe.designation}">
+                </option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="Insérer">
+        </p>
+    </form>
+</body>
+</html>

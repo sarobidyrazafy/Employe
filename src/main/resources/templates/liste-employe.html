@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des employés</title>
+</head>
+<body>
+    <h1>Liste des employés</h1>
+
+    <p th:if="${message}" th:text="${message}" style="color: green;"></p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Sexe</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Boucle sur les éléments de la map_besoins -->
+            <tr th:each="emp : ${employes}">
+                <td th:text="${emp.nom}">Nom</td>
+                <td th:text="${emp.sexe.designation}">Sexe</td>
+                <td>
+                    <a th:href="@{/employe/modifier/{id}(id=${emp.id})}"> Modifier </a>
+                    <a th:href="@{/employe/supprimer/{id}(id=${emp.id})}"> Supprimer </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

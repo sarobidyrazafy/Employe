@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insérer un employé</title>
+</head>
+<body>
+    <h1>Insérer un employé</h1>
+    
+    <form action="/employe/traitement/modifier" method="post">
+        <p><input name="id" type="hidden" th:value="${emp.id}"></p>
+        <p>
+            Nom: 
+            <input name="nom" type="text" required th:value="${emp.nom}">
+        </p>
+        <p>
+            <p>
+                Sexe: 
+                <select name="id_sexe" required>
+                    <option value="">Choisir</option>
+                    <option th:each="sexe : ${sexes}" 
+                            th:value="${sexe.id}" 
+                            th:text="${sexe.designation}"
+                            th:selected="${sexe.id == emp.sexe.id}">
+                    </option>
+                </select>
+            </p>            
+        </p>
+        <p>
+            <input type="submit" value="Modifier">
+        </p>
+    </form>
+</body>
+</html>
