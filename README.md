@@ -1,4 +1,4 @@
-# Crèe un database postgres de nom: test_bao
+# Crèe un database postgres de nom: test_bao (na izay tiana fa ovaina fotsiny ilay anarana ao amin'ny application.properties)
 # Crèe dans ce database les schémas dans le fichier /database/schema.sql
 # Insère dans ce database les données dans le fichier /database/data.sql
 
